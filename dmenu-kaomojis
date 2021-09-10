@@ -28,7 +28,7 @@ else
 fi
 
 index=$(tail -n+2 "$kaomojisfile" | while IFS='	' read -r id cat kao desc; do
-	echo "$kao [$cat]${desc:+: $desc}"
+	echo "[$cat] $kao${desc:+($desc)}"
 done | dmenu "$printindex_opt" "$@")
 
 if [ -n "$index" ]; then
